@@ -15,3 +15,7 @@ Example on how to stop the propagation of an event down in the call stack.
 ## rwdf/index.html
 
 Home town app added style change breakpoints to reorganize the content in the canvas. It uses flex orders.
+
+## responsive-images-project/index.html
+
+A blog that serves as the study case for the responsive images project.
