@@ -27,3 +27,17 @@ Check the page with the Chrome Dev Tools:
 * Try out emulation on different devices, portrait and landscape (click the icon next to the dimensions). What problems do you notice with each image? Which ones look worse?
 
 Check the page from Page Speed Insights -- lots more problems!
+
+# My notes on how to run
+
+Install dependencies:
+`npm install`
+
+To generate the new images folder:
+`node_modules/.bin/grunt`
+
+Run server:
+`npm start`
+
+Access with your browser at:
+`http://localhost:8080`
