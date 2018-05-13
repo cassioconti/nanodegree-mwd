@@ -15,6 +15,10 @@
     "grunt-contrib-copy": "~0.8.0"
   },
   "dependencies": {
+    "express": "^4.16.3",
     "grunt-responsive-images": "^0.1.6"
+  },
+  "scripts": {
+    "start": "node src/server/server.js"
   }
 }
