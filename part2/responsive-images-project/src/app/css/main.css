@@ -14,8 +14,15 @@ I've left some boilerplate below for you.
 
 body {}
 
-article {}
+article {
+  width: 50em;
+  margin: auto;
+}
 
-h1 {}
+h1 {
+  text-align: center;
+}
 
-img {}
+img {
+  max-width: 100%;
+}
