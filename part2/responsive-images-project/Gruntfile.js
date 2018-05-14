@@ -1,5 +1,5 @@
 /*
- After you have changed the settings at "Your code goes here",
+ After you have changed any settings for the responsive_images task,
  run this with one of these options:
   "grunt" alone creates a new, completed images directory
   "grunt clean" removes the images directory
@@ -14,16 +14,11 @@ module.exports = function (grunt) {
         options: {
           // engine: 'im',
           sizes: [{
-            name: 'large',
             width: 1600,
+            suffix: '_large_2x',
             quality: 30
           }]
         },
-
-        /*
-        You don't need to change this part if you don't change
-        the directory structure.
-        */
         files: [{
           expand: true,
           src: ['*.{gif,jpg,png}'],
@@ -54,9 +49,10 @@ module.exports = function (grunt) {
       dev: {
         files: [{
           expand: true,
-          src: 'fixed/*.{gif,jpg,png}',
+          src: ['fixed/*.{gif,jpg,png}'],
           cwd: 'src/app/images_src/',
-          dest: 'src/app/images/'
+          dest: 'src/app/images/',
+          flatten: true,
         }]
       },
     },

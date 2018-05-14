@@ -1,26 +1,16 @@
-/*
-
-Your styles go here!
-
-Hint! You'll probably want to start by styling:
-  * <body>
-  * <article>
-  * <h1>
-  * <img>
-
-I've left some boilerplate below for you.
-
-*/
-
-body {}
-
 article {
-  width: 50em;
-  margin: auto;
+  margin: 0 auto;
+  max-width: 50em;
+}
+
+body {
+  font-family: sans-serif;
+  margin: 2em;
 }
 
 h1 {
-  text-align: center;
+  margin: 0 auto 1em auto;
+  width: 800px;
 }
 
 img {
