@@ -32,7 +32,10 @@
 
           e.preventDefault();
 
-          // This seems like a good place to do some stuff :)
+          this.focusedIdx--;
+          if (this.focusedIdx < 0) {
+            this.focusedIdx = this.buttons.length - 1;
+          }
 
           break;
 
@@ -44,14 +47,17 @@
 
           e.preventDefault();
 
-          // This seems like a good place to do some stuff :)
+          this.focusedIdx++;
+          if (this.focusedIdx >= this.buttons.length) {
+            this.focusedIdx = 0;
+          }
 
           break;
         }
 
     }
 
-    this.changeFocus(this.focusedIdx); // <-- Hmm, interesting...
+    this.changeFocus(this.focusedIdx);
   };
 
   RadioGroup.prototype.changeFocus = function (idx) {
