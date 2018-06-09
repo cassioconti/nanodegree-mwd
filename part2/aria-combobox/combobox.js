@@ -33,7 +33,6 @@
      */
     function ComboBox(el, listEl) {
         this.el = el;
-        el.setAttribute('aria-expanded', false);
         this.listbox = new ListBox(listEl, this);
         listEl.id = nextId();
 
@@ -104,7 +103,6 @@
         },
 
         /**
-         * FIXME: need to call this method somewhere :)
          * Sets the aria-activedescendant value of the textbox to the ID of the given element.
          * @param {Element} el
          */
@@ -169,7 +167,11 @@
             if (foundItems === 0) {
                 this.hide();
             } else {
-                // FIXME: ChromeVox reports the wrong list size and position
+                for (var i = 0; i < this.visibleItems.length; i++) {
+                    var item = this.visibleItems[i];
+                    item.setAttribute('aria-posinset', i + 1);
+                    item.setAttribute('aria-setsize', this.visibleItems.length);
+                }
             }
         },
 
@@ -236,7 +238,7 @@
                 active.classList.remove('active');
             newActive.classList.add('active');
 
-            // FIXME: need to ensure focus stays on textbox, but report active list option
+            this.textbox.setActiveDescendant(newActive);
         }
     };
 
