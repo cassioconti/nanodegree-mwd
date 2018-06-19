@@ -1,0 +1,16 @@
+{
+  "name": "build-tools",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "scripts": {
+    "gulp": "gulp"
+  },
+  "devDependencies": {
+    "gulp": "^4.0.0",
+    "gulp-autoprefixer": "^5.0.0"
+  },
+  "dependencies": {
+    "gulp-sass": "^4.0.1"
+  }
+}
