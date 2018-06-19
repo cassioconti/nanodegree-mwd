@@ -4,6 +4,7 @@ const sass = require('gulp-sass');
 const autoprefixer = require('gulp-autoprefixer');
 const browserSync = require('browser-sync').create();
 const eslint = require('gulp-eslint');
+const jasmine = require('gulp-jasmine-phantom');
 
 gulp.task('styles', (done) => {
     gulp.src('sass/**/*.scss')
@@ -22,6 +23,12 @@ gulp.task('lint', () => {
         .pipe(eslint.format())
         .pipe(eslint.failAfterError())
         .pipe(browserSync.stream());
+});
+
+gulp.task('tests', (done) => {
+    gulp.src('spec/**/*.js')
+        .pipe(jasmine());
+    done();
 });
 
 gulp.task('default', gulp.series('styles', 'lint'), () => {
