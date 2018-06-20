@@ -1,3 +1,6 @@
-const message = 'hello world';
+(function () {
 
-console.log(message);
+	var foo = 1;
+	return foo;
+
+})();
