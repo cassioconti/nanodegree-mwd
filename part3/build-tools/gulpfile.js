@@ -8,12 +8,26 @@ const jasmine = require('gulp-jasmine-phantom');
 
 gulp.task('styles', (done) => {
     gulp.src('sass/**/*.scss')
-        .pipe(sass().on('error', sass.logError))
+        .pipe(sass({
+            outputStyle: 'compressed'
+        }).on('error', sass.logError))
         .pipe(autoprefixer({
             browsers: ['last 2 versions'],
         }))
-        .pipe(gulp.dest('./css'))
+        .pipe(gulp.dest('./dist/css'))
         .pipe(browserSync.stream());
+    done();
+});
+
+gulp.task('copy-html', (done) => {
+    gulp.src('./index.html')
+        .pipe(gulp.dest('./dist'));
+    done();
+});
+
+gulp.task('copy-images', (done) => {
+    gulp.src('img/*')
+        .pipe(gulp.dest('dist/img'));
     done();
 });
 
@@ -31,10 +45,11 @@ gulp.task('tests', (done) => {
     done();
 });
 
-gulp.task('default', gulp.series('styles', 'lint'), () => {
+gulp.task('default', gulp.series('copy-html', 'copy-images', 'styles', 'lint'), () => {
     gulp.watch('sass/**/*.scss', gulp.series('styles'));
     gulp.watch('**/*.js', gulp.series('lint'));
+    gulp.watch('/index.html', gulp.series('copy-html'));
     browserSync.init({
-        server: './',
+        server: './dist',
     });
 });
