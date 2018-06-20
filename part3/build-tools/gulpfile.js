@@ -5,6 +5,8 @@ const autoprefixer = require('gulp-autoprefixer');
 const browserSync = require('browser-sync').create();
 const eslint = require('gulp-eslint');
 const jasmine = require('gulp-jasmine-phantom');
+const concat = require('gulp-concat');
+const uglify = require('gulp-uglify-es').default;
 
 gulp.task('styles', (done) => {
     gulp.src('sass/**/*.scss')
@@ -28,6 +30,14 @@ gulp.task('copy-html', (done) => {
 gulp.task('copy-images', (done) => {
     gulp.src('img/*')
         .pipe(gulp.dest('dist/img'));
+    done();
+});
+
+gulp.task('scripts', (done) => {
+    gulp.src('js/**/*.js')
+        .pipe(concat('all.js'))
+        .pipe(uglify())
+        .pipe(gulp.dest('dist/js'));
     done();
 });
 
