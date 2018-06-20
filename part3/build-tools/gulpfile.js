@@ -26,7 +26,7 @@ gulp.task('lint', () => {
 });
 
 gulp.task('tests', (done) => {
-    gulp.src('spec/**/*.js')
+    gulp.src(['**/*spec.js', '!node_modules/**'])
         .pipe(jasmine());
     done();
 });
